@@ -1,6 +1,6 @@
 import numpy as np
 
-def seidel(A, x ,b):
+def _seidel(A, x ,b):
     n = len(A)                   
     
     for j in range(0, n):        
@@ -13,9 +13,10 @@ def seidel(A, x ,b):
     
     return x   
 
-def gaus_seidel(A, x, b, precision=1e-10):
+def gauss_seidel(A, x, b, precision=1e-10):
     while True:
-        x = seidel(A, x, b)
+        x = _seidel(A, x, b)
         if np.allclose(A, x, atol=precision, rtol=0.):
             break
+        print(x)
     return x
